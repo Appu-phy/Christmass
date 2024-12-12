@@ -1,0 +1,76 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passcode Validation</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: url('xmas.jpeg') no-repeat center center/cover; /* Replace with an actual Christmas-themed background URL */
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        .title {
+            font-family: 'Lucida Handwriting', cursive;
+            font-size: 24px;
+            color: #800000;
+            margin-bottom: 20px;
+        }
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        input {
+            padding: 10px;
+            width: 80%;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <script>
+        function validatePasscode() {
+            const correctPasscode = "1234"; // Replace with your desired passcode
+            const userPasscode = document.getElementById("passcode").value;
+
+            if (userPasscode === correctPasscode) {
+                window.location.href = "welcome .html"; // Redirect to the next page
+            } else {
+                alert("Try Again");
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Anu, welcome to my Christmas puzzle</div>
+        <h1>Enter Passcode</h1>
+        <input type="password" id="passcode" placeholder="Enter passcode">
+        <button onclick="validatePasscode()">Submit</button>
+    </div>
+</body>
+</html>

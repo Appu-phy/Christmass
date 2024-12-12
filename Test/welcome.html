@@ -1,0 +1,92 @@
+<!-- welcome.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: url('xmas.jpeg') no-repeat center center/cover; /* Replace with an actual Christmas-themed background URL */
+            font-family: 'Lucida Handwriting', cursive;
+            color: #800000;
+        }
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s, background-color 0.2s;
+            margin-top: 20px;
+        }
+        .button img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+        .button:hover {
+            background-color: #45a049;
+            transform: scale(1.1);
+        }
+        .instructions {
+            display: none;
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+        .start-button {
+            display: none;
+        }
+    </style>
+    <script>
+        function playSong() {
+            const audio = new Audio('song.mp3'); // Replace with an actual song URL
+            audio.play();
+            document.getElementById('instructions').style.display = 'block';
+            document.getElementById('start-button').style.display = 'inline-flex';
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome, Anu!</h1>
+        <p>You have successfully entered the correct passcode. Enjoy the Christmas puzzle!</p>
+        <button class="button" onclick="playSong()">
+            <img src="logo.png" alt="Logo"> <!-- Replace with an actual logo URL -->
+            Play Song
+        </button>
+        <div id="instructions" class="instructions">
+            <p>Instructions: Solve the puzzle to reveal the hidden message. Good luck and have fun!</p>
+        </div>
+        <button id="start-button" class="button start-button" onclick="window.location.href='question.html'">Start</button>
+    </div>
+</body>
+</html>
+

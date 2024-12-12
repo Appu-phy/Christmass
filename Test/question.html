@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: url('xmas.jpeg') no-repeat center center/cover; /* Replace with an actual Christmas-themed background URL */
+            font-family: 'Lucida Handwriting', cursive;
+            color: #800000;
+        }
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            max-width: 600px;
+        }
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .button {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s, background-color 0.2s;
+        }
+        .button:hover {
+            background-color: #45a049;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Christmas Puzzle</h1>
+        <p>Universe or Galaxy which one is bigger, My love?</p>
+        <input type="text" id="answer" placeholder="Type your answer here...">
+        <button class="button" onclick="checkAnswer()">Submit</button>
+    </div>
+    <script>
+        const audio = new Audio("song.mp3"); // Replace with an actual song URL
+        audio.loop = true;
+
+        window.onload = () => {
+            document.body.addEventListener('click', () => {
+                audio.play().catch(error => {
+                    console.error('Autoplay failed:', error);
+                });
+            }, { once: true });
+        };
+
+        function checkAnswer() {
+            const answer = document.getElementById('answer').value.trim().toLowerCase();
+            if (answer === 'my love') {
+                window.location.href = 'gift.html'; // Redirect to gift page
+            } else {
+                alert('Try again!');
+            }
+        }
+    </script>
+</body>
+</html>
+
