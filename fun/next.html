@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Watch our featured video titled 'Just Friends?'">
+    <title>Just Friends?</title>
+    <style>
+        body {
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .video-card {
+            background-color: #1e1e1e;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+            overflow: hidden;
+            max-width: 90%;
+            width: 500px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .video-card header {
+            padding: 10px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border-bottom: 1px solid #333;
+        }
+
+        .video-card video {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #333;
+        }
+
+        .video-card footer {
+            padding: 10px;
+            font-size: 0.9rem;
+            background-color: #222;
+        }
+
+        .video-card footer a {
+            color: #4caf50;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .video-card footer a:hover {
+            text-decoration: underline;
+        }
+
+        audio {
+            display: none; /* Hides the audio player */
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Audio -->
+    <audio autoplay loop>
+        <source src="sog.mp3" type="audio/mp3">
+        <source src="background-music.ogg" type="audio/ogg">
+        Your browser does not support the audio tag.
+    </audio>
+
+    <!-- Video Card -->
+    <div class="video-card">
+        <header>Just Friends?</header>
+        <video controls autoplay preload="auto">
+            <source src="Fig.mp4" type="video/mp4">
+            <source src="Fig.webm" type="video/webm">
+            <track src="captions.vtt" kind="subtitles" srclang="en" label="English">
+            Your browser does not support the video tag.
+        </video>
+        <footer>
+            If you have issues watching, <a href="Fig.mp4" download>download the video</a>.
+        </footer>
+    </div>
+</body>
+</html>
+

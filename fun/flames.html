@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLAMES Checker</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            background-color: #eae7dc;
+            color: black;
+            padding: 20px;
+        }
+        h1 {
+            color: #ffcc00;
+            text-shadow: 2px 2px 4px #000;
+            font-size: 3em;
+        }
+        .names {
+            margin: 20px 0;
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #00ffff;
+            text-shadow: 2px 2px 6px #000;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #ff5733;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px #000;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 2px 2px 5px #000;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .follow-up {
+            margin-top: 20px;
+        }
+        .follow-up a {
+            color: #ffcc00;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+        .follow-up a:hover {
+            text-decoration: underline;
+        }
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        .card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <img src="pic.jpg" alt="Background Image">
+        <h1>FLAMES Checker</h1>
+        <p class="names">Names: <strong>Appu</strong> and <strong>Pathu</strong></p>
+        <button onclick="checkFLAMES()">Check FLAMES</button>
+        <div class="result" id="result"></div>
+
+        <div class="follow-up" id="follow-up" style="display: none;">
+            <p>Really just friends? <a href="next.html">Click here</a></p>
+        </div>
+    </div>
+
+    <script>
+        function checkFLAMES() {
+            const name1 = "Appu".toLowerCase();
+            const name2 = "Pathu".toLowerCase();
+
+            // Remove common characters
+            let filteredName1 = name1;
+            let filteredName2 = name2;
+
+            for (let char of name1) {
+                if (filteredName2.includes(char)) {
+                    filteredName1 = filteredName1.replace(char, "");
+                    filteredName2 = filteredName2.replace(char, "");
+                }
+            }
+
+            // Calculate remaining characters
+            const totalChars = filteredName1.length + filteredName2.length;
+
+            // Define FLAMES categories
+            const flames = ["Friends", "Love", "Affection", "Marriage", "Enemy", "Sibling"];
+
+            // Determine result based on totalChars
+            let index = 0;
+            while (flames.length > 1) {
+                index = (index + totalChars - 1) % flames.length;
+                flames.splice(index, 1);
+            }
+
+            // Display result with emojis
+            const emojis = {
+                "Friends": "😊",
+                "Love": "😍",
+                "Affection": "🥰",
+                "Marriage": "💍",
+                "Enemy": "😡",
+                "Sibling": "👫"
+            };
+
+            document.getElementById("result").innerText = `Result: ${flames[0]} ${emojis[flames[0]]}`;
+            
+            // Show follow-up question
+            document.getElementById("follow-up").style.display = "block";
+        }
+    </script>
+</body>
+</html>
+
